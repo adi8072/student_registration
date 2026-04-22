@@ -11,10 +11,8 @@ connectDB();
 
 const app = express();
 
-// ✅ CORS (IMPORTANT for frontend connection)
-app.use(cors({
-  origin: "*"
-}));
+// ✅ FIXED CORS (use this simple version)
+app.use(cors());
 
 // middleware
 app.use(express.json());
@@ -22,7 +20,7 @@ app.use(express.json());
 // routes
 app.use("/api/auth", require("./routes/authRoutes"));
 
-// test route (optional)
+// test route
 app.get("/", (req, res) => {
   res.send("API is running...");
 });
